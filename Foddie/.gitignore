@@ -1,0 +1,18 @@
+# 🔐 Secrets (VERY IMPORTANT)
+.env
+
+# 🧠 Python cache (useless files)
+__pycache__/
+*.pyc
+
+# 🗄️ Database (local only)
+db.sqlite3
+
+# 📂 User uploaded files
+media/
+
+# ⚙️ Editor settings
+.vscode/
+
+# 🧾 Logs
+*.log

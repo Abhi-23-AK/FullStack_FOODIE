@@ -1,0 +1,214 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Web Page</title>
+
+  <!-- Link to your static CSS file -->
+  <link rel="stylesheet"href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <section class="container">
+    <div class="logo">
+      <img src="{% static 'image/cutlery.png' %}" alt="Logo" width="80" height="80">
+      <h1 class="moon" style="color:white;">FOODIE</h1>
+
+    </div>
+
+    <nav class="navbar">
+      <ul class="navbar-links">
+        <li><a href="#index">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#varities">Varieties</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section id="index" class="home">
+    <div class="hero-content">
+      <h2>Welcome to Foodie</h2>
+
+
+    </div>
+    <div class="circle">
+      <p>Your one-stop destination for delicious recipes and culinary inspiration.</p>
+    </div>
+
+    <div class="btn">
+      <a href="#varities">BOOK NOW</a>
+    </div>
+  </section>
+
+
+
+
+
+ <h2 id="about" class="us">About Us</h2>
+    <section class="about">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+       
+    <div class="about-layout">
+<div class="about-content">
+        <p>At Foodie, we believe that food is not just a necessity; 
+          it’s an experience. We are passionate about bringing you 
+          the best culinary delightsfrom around the world, right to 
+          your doorstep. Whether you’re craving a quick snack, a 
+          hearty meal, or a gourmet feast, we’ve got you covered. 
+          Every order you place is handled with care, and our delivery 
+          partners are trained to maintain hygiene, safety, and punctuality. 
+          We believe food is not just fuel — it’s an experience, and we aim 
+          to make every bite memorable.But we’re more than just a delivery app
+           — we’re part of your lifestyle. Whether you’re ordering for a solo 
+           night in, a family dinner, or a celebration with friends, we make sure 
+           your food arrives hot, fresh, and on time. Our user-friendly interface,
+            curated restaurant listings, personalized recommendations, and exciting 
+            offers are all designed to give you the best possible food ordering experience.Get your favorite meals delivered hot and fresh in just a few taps.
+
+</p>
+        <p>Our journey began with a mission to bridge the gap between 
+          great food and busy lives. In today’s fast-paced world, not 
+          everyone has the time to cook or dine out— but that shouldn’t 
+          mean you have to compromise on quality or taste. That’s where
+          we step in. We partner with the best local restaurants, cafes, 
+          bakeries, and cloud kitchens to bring you the flavors you love,
+           anytime and anywhere. From local favorites  to international 
+           cuisines, from comfort food to gourmet dishes — we deliver it all.
+          What sets us apart is our commitment to quality, speed, and 
+          reliability. Our platform is built with cutting-edge technology that 
+          ensures seamless ordering, real-time tracking,and secure payments. "Delicious food, just a click away."</p>
+                </div>
+              </div>
+    
+      <div class="image">
+        <img src="{% static 'image/3.png' %}" alt="Food Image" width="600" height="400">
+</div>
+</section>
+
+
+
+
+
+ <!--div id="varities" class="varities-content">
+    <h2>Varities</h2>
+  </div>
+<section class="varities">
+ 
+  <div class="grid-item">
+    <img src="{% static 'image/pizza.png' %}" width="300" height="250">
+    <h3 class="z">Pizza(Italy)</h3>
+    <h4 class="y">“A slice of Italy in every bite!”</h4>
+  </div>
+
+   <div class="grid-item">
+    <img src="{% static 'image/sushi.png' %}" width="300" height="250">
+    <h3 class="z">sushi(Japan)</h3>
+    <h4 class="y">“Roll into flavor, the Japanese way!”</h4>
+  </div>
+
+   <div class="grid-item">
+    <img src="{% static 'image/tacos.png' %}" width="300" height="250">
+    <h3 class="z">Tacos(Mexico)</h3>
+    <H4 class="y">“Folded with flavor, spiced with soul.”</H4>
+  </div>
+
+   <div class="grid-item">
+    <img src="{% static 'image/Croissant.png' %}" width="300" height="250">
+    <h3 class="z">Croissant (France)</h3>
+    <H4 class="y">“Layers of love from Paris.”</H4>
+  </div>
+
+   <div class="grid-item">
+    <img src="{% static 'image/Biryani.png' %}" width="300" height="250">
+    <h3 class="z">Biryani (India)</h3>
+    <H4 class="y">“A royal feast in every grain.”</H4>
+  </div>
+
+   <div class="grid-item">
+    <img src="{% static 'image/shawarma.png' %}" width="300" height="250">
+    <h3 class="z">Shawarma (Middle East)</h3>
+    <H4 class="y">“Wrap your taste buds in a world of flavor.”</H4>
+  </div>
+</section-->
+  <div id="varities" class="varities-content">
+  <h2>Varieties</h2>
+</div>
+
+<section class="varities">
+  {% for item in varieties %}
+    <div class="grid-item">
+      <img src="{{ item.image.url }}" width="300" height="250" alt="{{ item.name }}">
+      <h3 class="z">{{ item.name }} ({{ item.origin }})</h3>
+      <h4 class="y">“{{ item.tagline }}”</h4>
+    </div>
+  {% endfor %}
+</section>
+
+
+
+
+
+<div id="contact" class="control">
+    <h2>Contact Us</h2>
+  </div>
+
+<section class="contact us">
+  
+  <div class="contact-content">
+    <p>If you have any questions or feedback, feel free to reach out to us!</p>
+  </div>
+
+   <div class="wrapper">
+    <form method ="POST" action="">
+         {% csrf_token %}
+        <h1 class="A">REACH OUT US</h1>
+        <div class="input-box">
+            <input type="text" name="username"placeholder="USER NAME"required>
+          
+        </div>
+        <div class="input-box">
+            <input type="EMAIL" name="email"  placeholder="EMAIL"required>
+           
+        </div>
+        <div class="input-box">
+            <input type="password"name="password" placeholder="PASSWORD"required>    
+        </div>
+ <div class="input-box">
+            <input type="text"  name="phone"placeholder="PHONE NUMBER"required>
+           
+        </div>
+        <div class="input-box">
+            <input type="text"  name="address"placeholder="ADDRESS"required>
+           
+        </div>
+        <div class="input-box">
+            <textarea name="message"placeholder="MESSAGE" required></textarea>
+            
+        </div>
+          
+       
+<button type="submit" class="btn">SUBMIT</button>
+      
+      {% if success %}
+        <p style="color: green; text-align:center;">✅Form submitted successfully!</p>
+      {% endif %}
+    </form>
+</div>
+  
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2023 Foodie. All rights reserved.</p>
+  </div>
+</footer> 
+
+</body>
+</html>
